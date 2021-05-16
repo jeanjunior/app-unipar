@@ -1,0 +1,39 @@
+<div class="row m-3">
+
+	<div class="col-md-12">
+		<input type="text" class="form-control" [(ngModel)]="texto" />
+		<button class="btn btn-info" (click)="addTarefa()">
+			Adicionar
+		</button>
+	</div>
+
+	<div class="col-md-12">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Realizado?</th>
+					<th>Descrição tarefa</th>
+					<th>Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of lista">
+					<td>
+						<input type="checkbox" [(ngModel)]="item.feita">
+					</td>
+					<td>
+						{{item.descricao}}
+					</td>
+					<td>
+						<button class="btn btn-{{cor}}" (click)="deleteTodo(item)">
+							Remover
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	{{ lista | json }}
+
+</div>
